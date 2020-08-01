@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>根组件</h1>
+    {{$store.state.num}}
+    <input type="text" v-model="$store.state.num">
+    <add-item></add-item>
+    <hr>
+    <sub-item></sub-item>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddItem from './components/AddItem.vue'
+import SubItem from './components/SubItem.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
+  // 自己不需要定义数据了，直接引用vuex中的数据
+  // data:function(){
+  //   return {
+  //     num:1
+  //   }
+  // },
   components: {
-    HelloWorld
-  }
+    AddItem,
+    SubItem
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 300px;
+  margin: 20px auto;
+  border:1px solid #ccc;
+  padding:4px;
 }
 </style>
